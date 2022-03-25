@@ -1,7 +1,7 @@
 {
     "name": "AnaConEx Solutions - Sales Excel Reports",
     "version": '13.1.0.0',
-    'license': 'LGPL-3',
+    'license': 'AGPL-3',
     "category": 'Sale',
     "summary": """
         Order Profitability and Sales Report
