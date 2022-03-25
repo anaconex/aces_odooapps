@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+1,order.profitability.wizard,model_order_profitability_wizard,base.group_user,1,1,1,1
+2,custom.sale.report.wizard,model_custom_sale_report_wizard,base.group_user,1,1,1,1
+

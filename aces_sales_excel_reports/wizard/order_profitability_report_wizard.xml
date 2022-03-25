@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="order_profitability_wizard_view_form" model="ir.ui.view">
+            <field name="name">order.profitability.wizard.form</field>
+            <field name="model">order.profitability.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Order Profitability Report">
+                    <group>
+                        <group >
+                            <field name="order_type" widget="radio" options="{'horizontal': true}" required="True"/>
+                            <field name="sale_order_id" 
+                            attrs="{'invisible':[('order_type','!=','single_order')],'required':[('order_type','=','single_order')]}"/>
+                            <field name="state_wizard" attrs="{'invisible':[('order_type','=','single_order')]}"/>
+                            <field name="order_type_sale_order_wizard" attrs="{'invisible':[('order_type','=','single_order')]}" widget="radio" options="{'horizontal': true}"/>
+                            <field name="detail_checker" attrs="{'invisible':[('order_type','=','single_order')]}" widget="radio" options="{'horizontal': true}"/>
+                        </group>
+                        <group >
+                        	<field name="start_at"/>
+                            <field name="stop_at"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="print_sales_profitability_xlsx" type="object" string="Print XLS" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_order_profitability_report" model="ir.actions.act_window">
+            <field name="name">Order Profitability Report</field>
+            <field name="res_model">order.profitability.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_order_profitability_report"
+            action="action_order_profitability_report"
+            parent="sale.menu_sale_report"
+            sequence="52"
+        />
+    </data>
+</odoo>

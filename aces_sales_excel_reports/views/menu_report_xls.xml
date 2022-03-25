@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <report
+            id="sales_profitability_xlsx"
+            model="sale.order"
+            string="Sales Profitability Report"
+            report_type="xlsx"
+            name="aces_sales_excel_reports.sales_profitability_xls"
+            file="aces_sales_excel_reports.sales_profitability_xls"
+            attachment_use="True"
+            menu="False"
+        />
+        
+        <report
+            id="custom_sale_xlsx"
+            model="sale.order"
+            string="Custom Sale Report"
+            report_type="xlsx"
+            name="aces_sales_excel_reports.custom_sale_xls"
+            file="aces_sales_excel_reports.custom_sale_xls"
+            attachment_use="True"
+            menu="False"
+        />
+    </data>
+</odoo>
