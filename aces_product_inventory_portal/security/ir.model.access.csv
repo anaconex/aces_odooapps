@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+1,product.product,model_product_product,,1,1,1,1
+2,product.template,model_product_template,,1,1,1,1
+3,stock.warehouse,model_stock_warehouse,,1,1,1,1
+4,stock.location,model_stock_location,,1,1,1,1
+5,stock.move,model_stock_move,,1,1,1,1
+6,stock.quant,model_stock_quant,,1,1,1,1
+7,uom.uom,model_uom_uom,,1,1,1,1
+8,stock.picking,model_stock_picking,,1,1,1,1
+9,product.category,model_product_category,,1,1,1,1
