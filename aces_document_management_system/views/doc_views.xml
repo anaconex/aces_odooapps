@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_document_tree" model="ir.ui.view">
+        <field name="name">document.tree.view</field>
+        <field name="model">document.manager</field>
+        <field name="arch" type="xml">
+            <tree string="Documents">
+<!--                <field name="doc_name_seq"/>-->
+                <field name="doc_name_seq"/>
+                <field name="doc_name"/>
+                <field name="doc_exp_date"/>
+                <field name="doc_rem_date"/>
+                <field name="employee_ids" widget="many2many_tags"/>
+                <field name="doc_description"/>
+                <field name="documents"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_document_kanban" model="ir.ui.view">
+        <field name="name">document.kanban.view</field>
+        <field name="model">document.manager</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="doc_name_seq"/>
+                <field name="doc_name_seq"/>
+                <field name="doc_name"/>
+                <field name="doc_exp_date"/>
+                <field name="doc_description"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_hospital_patient_kanban">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title"><field name="display_name"/></strong>
+                                <div class="o_kanban_tags_section"/>
+                                <ul>
+<!--                                    <li>ID : <field name="doc_name_seq"/></li>-->
+                                    <li>Code : <field name="doc_name_seq"/></li>
+                                    <li>Name : <field name="doc_name"/></li>
+                                    <li>E-Date : <field name="doc_exp_date"/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="view_document_form" model="ir.ui.view">
+        <field name="name">document.form.view</field>
+        <field name="model">document.manager</field>
+        <field name="arch" type="xml">
+            <form string="Document Form">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="doc_name_seq"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="doc_name"/>
+                            <field name="employee_ids" widget="many2many_tags"/>
+                            <field name="documents" />
+                        </group>
+                        <group>
+                            <field name="doc_exp_date"/>
+                            <field name="doc_rem_date"/>
+                        </group>
+                    </group>
+                    <label for="doc_description"/>
+                    <field name="doc_description"/>
+                    <notebook>
+                        <page string="Document Lines">
+                            <field name="documents_one2many">
+                                <tree editable="below">
+                                    <field name="documents_name_line" widget="binary" filename="file_name"/>
+                                    <field name="file_name" invisible="1"/>
+                                    <field name="doc_exp_date_line"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="documents_name_line" widget="binary" filename="file_name"/>
+                                            <field name="file_name" invisible="1"/>
+                                            <field name="doc_exp_date_line"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+                <sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh':'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+
+    <record id="action_document_form" model="ir.actions.act_window">
+            <field name="name">Document Action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">document.manager</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                  Create First Record Of Document..!
+              </p>
+            </field>
+        </record>
+
+    <!-- HERE WE DEFINE MENU ITEMS  -->
+    <menuitem id="document_root" name="DMS" sequence="1" /> <!-- PARENT MENU / MAIN MENU -->
+    <menuitem id="document_tree" name="Documents Manager" parent="document_root" action="action_document_form"/>
+</odoo>
