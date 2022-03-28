@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="custom_purchase_report_wizard_view_form" model="ir.ui.view">
+            <field name="name">custom.purchase.report.wizard.form</field>
+            <field name="model">custom.purchase.report.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Custom Purchase Report">
+                    <group>
+                        <group>
+                            <field name="order_type" widget="radio" options="{'horizontal': true}" required="True"/>
+                            <field name="purchase_order_id" 
+                            attrs="{'invisible':[('order_type','!=','single_order')],'required':[('order_type','=','single_order')]}"/>
+                        </group>
+                        <group >
+                        	<field name="start_at"/>
+                            <field name="stop_at"/>
+                            <field name="state" attrs="{'invisible':[('order_type','!=','all_orders')]}"/>
+                        	<field name="invoice_status" attrs="{'invisible':[('order_type','!=','all_orders')]}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="print_custom_purchases_xlsx" type="object" string="Print XLS" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_custom_purchase_report" model="ir.actions.act_window">
+            <field name="name">Purchase Report</field>
+            <field name="res_model">custom.purchase.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_custom_purchase_report"
+            action="action_custom_purchase_report"
+            parent="purchase.purchase_report"
+            sequence="5"
+        />
+    </data>
+</odoo>
