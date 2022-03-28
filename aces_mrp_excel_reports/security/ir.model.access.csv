@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+1,mrp.cost.sale.report.wizard,model_mrp_cost_sale_report_wizard,base.group_user,1,1,1,1
+2,timeline.report.wizard,model_timeline_report_wizard,base.group_user,1,1,1,1
+
