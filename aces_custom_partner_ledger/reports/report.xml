@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_for_custom_partner_ledger" model="ir.actions.report">
+        <field name="name">Partner Ledger</field>
+        <field name="model">account.move.line</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">aces_custom_partner_ledger.custom_report_partner_ledger</field>
+        <field name="report_file">aces_custom_partner_ledger.custom_report_partner_ledger</field>
+        <field name="binding_model_id" ref="model_account_move_line"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>
