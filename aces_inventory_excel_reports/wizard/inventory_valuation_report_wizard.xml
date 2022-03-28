@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="inventory_valuation_view_form" model="ir.ui.view">
+            <field name="name">custom.inventory.valuation.wizard.form</field>
+            <field name="model">custom.inventory.valuation.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Inventory Valuation Report">
+                    <group>
+                        <group>
+                        	<field name="date_at"/>
+                        </group>
+                        <group >
+                        	<field name="report_type" widget="radio" options="{'horizontal': true}" required="True"/>
+                            <field name="location_id" 
+                            attrs="{'invisible':[('report_type','!=','location')],'required':[('report_type','=','location')]}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="print_custom_inventory_valuation_xlsx" type="object" string="Print XLS" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_inventory_valuation_report" model="ir.actions.act_window">
+            <field name="name">Inventory Valuation Report</field>
+            <field name="res_model">custom.inventory.valuation.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_inventory_valuation_report"
+            action="action_inventory_valuation_report"
+            parent="stock.menu_warehouse_report"
+            sequence="52"
+        />
+    </data>
+</odoo>
