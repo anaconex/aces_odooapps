@@ -9,7 +9,7 @@
     'category': '',
     "author": "AnaConEx Solutions LLC",
     "website": "https://www.anaconex.com/",
-    'license': 'AGPL-3',
+    'license': 'LGPL-3',
     'depends': ['base','account', 'account_reports', 'account_accountant', 'web'],
     'data': [
         'reports/report.xml',
