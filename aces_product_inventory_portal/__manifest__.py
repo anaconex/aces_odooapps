@@ -24,8 +24,8 @@
     'demo': [
 #         'demo/demo.xml',
     ],
-    "price": 0,
-    "currency": 'PKR',
+    "price": 100,
+    "currency": 'USD',
     "installable": True,
     "application": True,
     "auto_install": False,
