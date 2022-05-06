@@ -18,6 +18,7 @@
     ],
     "price": 0,
     "currency": 'USD',
+    "images": ['static/description/banner.gif'],
     "installable": True,
     "application": True,
     "auto_install": False,
